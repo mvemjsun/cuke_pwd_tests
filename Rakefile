@@ -22,4 +22,10 @@ Cucumber::Rake::Task.new(:security) do |t|
   t.cucumber_opts = %w{--format html --tags @security -o report_security.html}
 end
 
+Cucumber::Rake::Task.new(:duplicate_characters) do |t|
+  t.profile = 'default'
+  t.cucumber_opts = %w{--format html --tags @duplicate -o report_duplicate.html}
+  # ruby -e '10.times { `cucumber --tags @duplicate` }'
+end
+
 task :default => :normal
