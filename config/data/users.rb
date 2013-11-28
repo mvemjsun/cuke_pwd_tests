@@ -1,11 +1,11 @@
 module Userdata
 
   def self.VALID_USER
-    "MELL0001"
+    "******************************"
   end
 
   def self.VALID_UNKNOWN_USER
-    "XXDD0001"
+    "******************************"
   end
 
   def self.INVALID_USER_FORMAT
@@ -37,18 +37,24 @@ module Userdata
   end
 
   def self.LOCKED_AT_UTM_USERID
-    "TONK0001"
+    "******************************"
   end
 
   def self.USERID_WITH_NO_ROLES
-    "ABCD0004"
+    "******************************"
   end
 
   def self.USERID_WITH_NO_SECURITY_DETAILS
-    "ABAS0001"
+    "******************************"
   end
 
   def self.USERID_WITH_LESS_SECURITY_DETAILS
-    "LONG0001"
+    "******************************"
+  end
+
+  def self.VALID_RANDOM_USER
+    p1=('A'..'Z').to_a.shuffle[0,4].join
+    p2=(0..9).to_a.shuffle[0,4].join
+    return p1+p2
   end
 end

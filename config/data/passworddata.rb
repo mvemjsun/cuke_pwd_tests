@@ -11,6 +11,6 @@ module Passworddata
   end
 
   def self.SIMPLE_PASSWORD
-     "SSSS1111"
+     "********"
   end
 end

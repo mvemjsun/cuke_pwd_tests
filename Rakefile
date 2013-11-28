@@ -17,6 +17,11 @@ Cucumber::Rake::Task.new(:db) do |t|
   t.cucumber_opts = %w{--format html --tags @db -o report_db.html}
 end
 
+Cucumber::Rake::Task.new(:crud) do |t|
+  t.profile = 'default'
+  t.cucumber_opts = %w{--format html --tags @crud -o report_crud.html}
+end
+
 Cucumber::Rake::Task.new(:security) do |t|
   t.profile = 'default'
   t.cucumber_opts = %w{--format html --tags @security -o report_security.html}

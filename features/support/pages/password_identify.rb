@@ -66,6 +66,11 @@ class HomePage
 	def attempt_too_many_changes
 		FactoryGirl.create(:Passwordattemptlog, :Attempt_Count => 10)
 		enter_valid_userid
-	end
+  end
+
+  def enter_random_valid_format_userid
+    self.user_id = Userdata.VALID_RANDOM_USER
+    identify_user
+  end
 
 end

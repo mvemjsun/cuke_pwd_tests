@@ -38,3 +38,6 @@ end
 When(/^I try to login as user (.*?)$/) do |user_id|
   on(HomePage).identify_with(user_id)
 end
+Given(/^I visit the portal and supply a random userid whose format is valid$/) do
+  on(HomePage).enter_random_valid_format_userid
+end

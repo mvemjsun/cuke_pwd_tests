@@ -58,3 +58,7 @@ When(/^I change to cookie contents greater than 32 bytes $/) do
   @browser.cookies.clear
   @browser.cookies.add 'motgarages', "#64e7f2053c46759dcda4ed94f9dxxxxxxxx", :name => ".motgarages.co.uk" ,:path => "/password", :expires => 0, :secure => false
 end
+
+When(/^all the security questions should have non repeating characters being asked$/) do
+  on(ConfirmPage).duplicate_answer_characters.should_not == true
+end

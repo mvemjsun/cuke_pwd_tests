@@ -38,6 +38,32 @@ class ConfirmPage
     invalid_questions.count == 0 ? true : false
   end
 
+  # The question text asked
+  def question_texts_presented
+    question = question_form_element.label_elements
+    presented_questions = question.select {|question| question.attribute("name") == "question"}
+    @questions = []
+    presented_questions.each do |question_element|
+      @questions.push question_element.text
+    end
+    return @questions
+  end
+
+  # Checks that the questions have the correct format
+  def duplicate_answer_characters
+    questions = question_texts_presented
+    duplicates = false
+    pattern = /(?<pos1>\d\w\w) & (?<pos2>\d\w\w)/
+    questions.each do |question_text|
+       if (pattern =~ question_text)
+          if ($~[:pos1] == $~[:pos2])
+            duplicates = true
+          end
+       end
+    end
+    return duplicates
+  end
+
   def enter_valid_format_but_wrong_form_data
     form_dynamic_textinput_names.each do |dynamic_element_name|
       x = dynamic_element_name.to_sym
@@ -149,6 +175,5 @@ class ConfirmPage
     end
     return dynamic_names
   end
-
 
 end

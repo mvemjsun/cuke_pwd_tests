@@ -1,4 +1,4 @@
-
+@crud
 Feature: CRUD operations on the database schema
 
 Scenario: be able to successfully create a row in the passwordattempt log

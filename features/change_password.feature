@@ -50,7 +50,8 @@ Feature: Changing MOTCOMP passwords using the internet password change portal.
     Then I answer the security questions for valid unknown user
     When I try to change my password 4 times
     Then the attempt count in table passwordattemptlog should be set to 4
-
+    
+    @retry
   Scenario: Successful change of password should set the security log status to success
     Given I visit the portal and supply a correctly formatted known userid
     Then I answer the security questions correctly for valid user
@@ -58,7 +59,7 @@ Feature: Changing MOTCOMP passwords using the internet password change portal.
     And the page title should be correct
     Then the change result of the table securitylog should be set to successful
     And the attempt count in table passwordattemptlog should be set to 1
-
+    
   Scenario: Storing the security log correctly for valid and known user. The random questions presented should
     be stored correctly, i.e the questions and their answer characters should be saved correctly.
     Given I visit the portal and supply a correctly formatted known userid
@@ -107,6 +108,12 @@ Feature: Changing MOTCOMP passwords using the internet password change portal.
      And I change to cookie contents to an unknown cookie
      Then I try to change the password
      Then I should see a page with text "You must enter your User ID"
+
+    @duplicate
+  Scenario: User should be presented with questions having non repeating answer characters
+    Given I visit the portal and supply a random userid whose format is valid
+    Then I should see a page with text "Provide details to change password"
+    And all the security questions should have non repeating characters being asked
 
   Scenario Outline: Malacious code in the cookie should not be allowed.
     When I visit the portal and supply a correctly formatted known userid

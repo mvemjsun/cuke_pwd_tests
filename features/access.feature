@@ -12,10 +12,10 @@ Feature: Access to directories and individual files should not be allowed from t
 
     Examples:
     | folder_name |
-    | app         |
-    | config      |
-    | database    |
-    | lib         |
-    | scripts     |
-    | style       |
-    | tests       |
+    | ***         |
+    | ******      |
+    | ********    |
+    | ***         |
+    | *******     |
+    | *****       |
+    | *****       |
